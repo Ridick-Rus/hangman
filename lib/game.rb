@@ -8,7 +8,7 @@ class Game
   # загаданного слова и пустой массив для дальнейшего сбора в него вводимых
   # букв.
   def initialize(word)
-    @letters = word.chars
+    @letters = word.chars.upcase
     @user_guesses = []
   end
 
@@ -33,16 +33,12 @@ class Game
   # массиве на соответствующем месте находится nil. Этот массив нужен методу
   # экземпляра класса ConsoleInterface для вывода слова на игровом табло.
   def letters_to_guess
-    result =
       @letters.map do |letter|
         normalized_letter = normalize(letter)
         if @user_guesses.include?(normalized_letter)
           letter
-        else
-          nil
         end
       end
-    result
   end
 
   # Возвращает true, если у пользователя не осталось ошибок, т.е. игра проиграна
@@ -77,15 +73,15 @@ class Game
 
   def normalize(letter)
     if letter == "Ё"
-      return "Е"
+      "Е"
     elsif letter == "Й"
-      return "И"
+      "И"
     else
-      return letter
+      letter
     end
   end
 
   def normalized_letters
-    @letters.map {|letter| normalize(letter)}
+    @letters.map { |letter| normalize(letter) }
   end
 end
