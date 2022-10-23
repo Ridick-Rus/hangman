@@ -8,7 +8,7 @@ class Game
   # загаданного слова и пустой массив для дальнейшего сбора в него вводимых
   # букв.
   def initialize(word)
-    @letters = word.chars.upcase
+    @letters = word.chars.map{ |character| character.upcase }
     @user_guesses = []
   end
 
