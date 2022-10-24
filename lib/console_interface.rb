@@ -3,7 +3,7 @@ class ConsoleInterface
   # помещённые в массив. Один элемент массива — одна строка с содержимым целого
   # файла.
   FIGURES =
-      Dir["#{__dir__}/../data/figures/*.txt"].sort.map { |file_name| File.read(file_name) }
+    Dir["#{__dir__}/../data/figures/*.txt"].sort.map { |file_name| File.read(file_name) }
   # На вход конструктор класса ConsoleInterface принимает экземпляр класса Game.
   #
   # Экземпляр ConsoleInterface выводит информацию юзеру. При выводе использует
@@ -62,6 +62,6 @@ class ConsoleInterface
   # и возвращает её
   def get_input
     print "Введите следующую букву: "
-    letter = gets[0].upcase
+    gets[0].upcase
   end
 end
